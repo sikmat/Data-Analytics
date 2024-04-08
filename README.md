@@ -33,3 +33,17 @@ Analysis Techniques
 3. Prescriptive
 
 ML, AI and Deep Learning
+
+Machine Learning: Uses algorithms to discover knowledge in datasets that can be applied to make informed decisions about the future. Useful in the following:
+
+- Segmenting customers and determining the marketing messages that will appeal to different customer groups.
+- Discovering anomalies in system and application logs that may be indicative of a cybersecurity incident.
+- Forecasting product sales based on market and environmental conditions.
+- Recommending the next movie that a customer might wish to watch based on their past activity and the preferences of similar customers.
+- Setting prices for hotel rooms far in advance based on forecasted demand
+
+Artificial Intelligence: Techniques used to get a computer to imitate human behavior, to try and behave as if they are intelligent.
+
+Machine Learning: Is also a subset of AI techniques, attempting to apply statistics to data problems in an effort to discover new knowledge. It is AI techniques designed to learn.
+
+Deep Learning: Is a further subdivision of ML that uses complex techniques, known as neural networks, to discover knowledge in a particular way. It is a highly specialized field of ML, mostly used for image, video and sound analysis
