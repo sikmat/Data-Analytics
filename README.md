@@ -47,3 +47,8 @@ Artificial Intelligence: Techniques used to get a computer to imitate human beha
 Machine Learning: Is also a subset of AI techniques, attempting to apply statistics to data problems in an effort to discover new knowledge. It is AI techniques designed to learn.
 
 Deep Learning: Is a further subdivision of ML that uses complex techniques, known as neural networks, to discover knowledge in a particular way. It is a highly specialized field of ML, mostly used for image, video and sound analysis
+
+Data Governance
+Ensures that an organization has high-quality data and is able to effectively control that data. Using Master Data Management programs to maintain and improve the quality of the data.
+
+Analytics Tool: Automate much of the heavy workload of analysis, improving the analyst's ability to acquire, clean, manipulate, visualizer and analyze data. As well as assistance in reporting and communicating results. Examples of these tools are Excel spreadsheet, Google sheets.
