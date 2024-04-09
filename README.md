@@ -168,3 +168,13 @@ Large Text
 - Microsoft implements varchar differently, supporting up to 2GB
 
 CATEGORIES OF DATA
+- Not all data can be categorized as structured or unstructured, as a result semi-structured data represents the space between the two. Semi represents the space between structured spreadsheets and unstructured videos.
+
+Quantitative vs Qualitative Data
+- Data is either qualitative or quantitative
+- Quantitative consists of numeric values, like counting or measuring values. Answers questions like "How many?" and "How much?".
+- Qualitative Consists of frequent text values. From data elements whose values describe characteristics, traits and attitudes. Ex: Pet Name, Animal Type, Breed name. Answers questions like, "Why?" and "What?"
+
+Discrete vs Continous Data
+Categorical Data
+Dimensional Data
