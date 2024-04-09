@@ -72,7 +72,7 @@ Tabular Data
 - It is helpful to think of tabular data as rectangular data. It is easy to draw a rectangle around the data. The top of the rectangle is defined by columns, while rows define the left side of the rectangle.
 - Spreadsheets, including Microsoft Excel, Google Sheets, and Apple Numbers, are practical tools for representing tabular data. A relational database management system (RDMS), commonly called a database, extends the tabular model. Instead of having all data in a single table, a database organizes related data across multiple tables. The connection between tables is known as a relationship. Oracle, Microsoft SQL Server, MySQL, and PostgreSQL are examples of database software. Tabular data is the concept that underpins both spreadsheets and relational databases.
 
-Structured Data Types
+STRUCTURED Data Types
 - Structured data is tabular in nature and organized into rows and columns. Think of a spreadsheet for example. With clearly defined column headings, spreadsheets are easy to work with and understand.
 
 Character
@@ -134,3 +134,37 @@ Strong And Weak Typing
 Data types define values placed in columns. 
 - Strong typing is when technology rigidly enforces data types. Databases, discussed in Chapter 3, use strong typing. A database column defined as numeric only accepts numerical values. You will get an error if you attempt to enter characters into a numeric column.
 - Weak typing loosely enforces data types. Spreadsheets use weak typing to help make it easier for people to accomplish their work. Spreadsheets default to an “automatic” data type and accommodate practically any value. When a person specifies a data type, it is loosely enforced compared to a database. For example, with a numeric spreadsheet cell, the software does not stop you from entering and storing characters.
+
+UNSTRUCTURED Data Types
+- Any data that does not fit neatly into the tabular model. Ex: Digital images, Audio, Video, Open-ended survey responses.
+- Analyzing unstructured data gives a lot of insight and useful information, better understanding.
+
+Binary
+- Common for storing unstructured data, supports any type of file.
+- When choosing which binary type to use, size tends to be the limoiting factor. You must select data type that is as large as the largest file you plan to store.
+- Most common types of unstructured data are audio, image and video data.
+- Spreadsheets are designed to manage highly structured data, but are not good at storing binary data, which is unstructured. Google sheets does allow storing of binary data within a cell, excel is not good at it.
+- DBs are better equiped and sophisticated enough to handle a collection of data types for storing binary data.
+
+Audio
+- Recording/Capturing, (digitizing ), storing, and analyzing audio data leads to better decision-making and responsiveness in the real world.
+- Audio in its raw form takes up more storage space, its better encode it with a compression algoritm to reduce the space it uses.
+- Storing audio requires a data type designed to handle raw binary data.
+- Quality of the audio affects the file size, hence more storage required.
+
+Images
+- AI alogorithms for image processing over a set of digital photos allow us to be able search and find specific objects in an image, or an image containing that object. Used for X-rays, Insurance.
+- Image Resolution is an important factor, that governs the size of the image file and how much space is required to store it. Images of higher quality, more detail and greater resolution will need more storage space.
+- Images can also be compressed to take up less space.
+- Storing in a DB needs a data type designed to handle raw binary data, like varbinary or BLOB.
+
+Video
+- Image processing algorithms are also applied on videos..
+- Resolution, Length/Duration of the video also affect the size of the file and storage
+
+Large Text
+- Their data type names differ among DB vendors
+- Oracle has varchar/varchar2 text data type, that is limited to 4000 bytes. But has the CLOB proprietary data type, which supports up to 128TB of text data.
+- Microsoft implements varchar differently, supporting up to 2GB
+
+CATEGORIES OF DATA
