@@ -1,4 +1,5 @@
 # DATA ANALYTICS
+# BASICS OF DATA
 
 # WEEK 1 
 Data Analytics
@@ -52,3 +53,16 @@ Data Governance
 Ensures that an organization has high-quality data and is able to effectively control that data. Using Master Data Management programs to maintain and improve the quality of the data.
 
 Analytics Tool: Automate much of the heavy workload of analysis, improving the analyst's ability to acquire, clean, manipulate, visualizer and analyze data. As well as assistance in reporting and communicating results. Examples of these tools are Excel spreadsheet, Google sheets.
+
+DATA TYPES
+data element is an attribute about a person, place, or thing containing data within a range of values. Data elements also describe characteristics of activities, including orders, transactions, and events.
+
+A data type limits the values a data element can have
+Individual data types support structured, unstructured, and semi-structured data
+
+Tabular Data
+Tabular data is data organized into a table, made up of columns and rows. A table represents information about a single topic. Each column represents a uniquely named field within a table, also called a variable, about a single characteristic. The contents of each column contain values for the data element as defined by the column header.
+
+It is helpful to think of tabular data as rectangular data. It is easy to draw a rectangle around the data. The top of the rectangle is defined by columns, while rows define the left side of the rectangle.
+
+Spreadsheets, including Microsoft Excel, Google Sheets, and Apple Numbers, are practical tools for representing tabular data. A relational database management system (RDMS), commonly called a database, extends the tabular model. Instead of having all data in a single table, a database organizes related data across multiple tables. The connection between tables is known as a relationship. Oracle, Microsoft SQL Server, MySQL, and PostgreSQL are examples of database software. Tabular data is the concept that underpins both spreadsheets and relational databases.
