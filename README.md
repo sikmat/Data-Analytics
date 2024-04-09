@@ -109,10 +109,24 @@ Character Sets
 - It is necessary to realize that individual characters may consume multiple bytes, impacting the length of a character string you can store in a character data type.
 
 Numeric
+- Exclusively numbers making up the values of a data attribute, integer and numeric data types used in databases
+  
 Whole Numbers
-Rational Numbers
+- Integer and all its subtypes are for storing whole numbers. Value ranges for smallint and shortinteger are the same. Same for int and integer, as well as bigint and longinteger. different names, but same functionality.
+  
+Rational Numbers??? (LMS EXPLANATION NOT ENOUGH)
+- In all its variants, the numeric data type is for rational numbers that include a decimal point.
+- Each DB vendor has different implementation on how they support rational numbers.
+- There is a data type called numeric in both SQL Server and MySQL that is functionally equivalent to the decimal type.
+- Data types are incosistently named across databases, you must consider the ultimate range of values a given data element handles.
+  
 Date and Time
+- DBs have various data types for handling date- and time related info, depending on the data you need to store pertaining to time, date or both.
+  
 Currency
+- To display the stored value as a currency you must apply data formatting so it displays as required for the specific purpose. Data formatting is common with currency and dates data types.
+- Microsoft SQL Server DB has data types specifically for storing currency.
+- It is better to use numeric data type to store currency related data, to avoid rounding errors. Limiting a calculation to four digits of precision after the deicmal point can lead to rounding errors.
 
 You should recognize the difference between storing a data type and formatting it to facilitate human interpretation. Take care not to automatically infer a data type based on formatting.
 
