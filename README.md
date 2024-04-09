@@ -66,3 +66,54 @@ Tabular data is data organized into a table, made up of columns and rows. A tabl
 It is helpful to think of tabular data as rectangular data. It is easy to draw a rectangle around the data. The top of the rectangle is defined by columns, while rows define the left side of the rectangle.
 
 Spreadsheets, including Microsoft Excel, Google Sheets, and Apple Numbers, are practical tools for representing tabular data. A relational database management system (RDMS), commonly called a database, extends the tabular model. Instead of having all data in a single table, a database organizes related data across multiple tables. The connection between tables is known as a relationship. Oracle, Microsoft SQL Server, MySQL, and PostgreSQL are examples of database software. Tabular data is the concept that underpins both spreadsheets and relational databases.
+
+Structured Data Types
+Structured data is tabular in nature and organized into rows and columns. Think of a spreadsheet for example. With clearly defined column headings, spreadsheets are easy to work with and understand.
+
+Character
+- Limits data entry to only valid characters.
+- Characters can include the alphabet that you might see on your keyboard, as well as numbers.
+- Depending on your needs, multiple data types are available that can enforce character limits.
+
+Alphanumeric 
+- Most widely used data type for storing character-based data.
+- As the name implies, alphanumeric is appropriate when a data element consists of both numbers and letters.
+
+The alphanumeric data type is ideal for storing product stock-keeping units (SKUs). It is common in the retail clothing space to have a unique SKU for each item available for sale. If you sell jeans, you may stock products from Armani Jeans, Diesel, Lee Jeans, Levi's, and Wrangler. To keep track of all the manufacturer, size, color, and fit combinations in your inventory. Tracking inventory at the SKU level allows you to manage availability in your online and in-store systems, all courtesy of the alphanumeric data type.
+
+Text
+- There are times when it is necessary to impose even stricter limits on character-related data to exclude numbers. Excluding numbers can be achieved using the text data type.
+- Closely related to the alphanumeric data type, but more stringent. It is helpful to think of text as a subset of alphanumeric, only allowing the storage of alphabetic characters.
+- Improves the overall data quality. For example, consider the “State” data element in Figure 2.1. If the system contains state names from the United States, it would be appropriate to select a text data type.
+
+Consider a data entry example. Suppose you operate an online retail system. To deliver orders, you need address information for the intended recipients. This information comes from the customers themselves since they can specify where orders should be shipped. Any time a person interacts with a computer, there is the potential for a data entry error. Suppose someone wanted to enter “Montana” for the state component of their address.
+
+Take a look at the positioning of the O and 0 keys in Figure 2.3, depicting the U.S. QWERTY keyboard layout. These two keys are very close together. Many people press these keys with the fourth finger of their right hand, making a data entry error that much more likely. A person could supply the value “M0ntana” instead of the intended “Montana.” With “State” as a text data type, trying to input the erroneous value would result in an error. However, with “State” implemented as alphanumeric, nothing would prevent that mistake from making its way into the database.
+
+
+Each database software has its unique method of implementing character data types to handle the nuances related to character data. The most significant difference has to do with how much data a particular data element can contain. Table 2.2 shows a sampling of how the three most popular databases provide data types for character data.
+
+All of the data types shown in Table 2.2 support alphanumeric data. Where they differ is in how much data they can handle. Before defining a column as alphanumeric, you need to determine how long your longest-possible text value will be. You also need to realize that while data types may have the same names, they are implemented differently by software vendors. There are also individual data types, like CLOB and LONGTEXT, that are vendor-specific. Finally, you need to be aware of the absolute limits imposed by the database you are using.
+
+With spreadsheets, configuring a given cell or range of cells as a text-only data type takes more effort than when using a database. It is not possible to accomplish this with one of the native data types provided by the software. Instead, limiting it to just text requires a formula. Figure 2.4 shows an example of how to use a formula to perform this level of validation in Microsoft Excel. Suppose a person tries to input a value containing numbers or symbols into a cell where the formula is active. Figure 2.5 illustrates the resulting error message.
+
+Character Sets
+When considering alphanumeric and text data types, you need to think about the character set you are using to input and store data when using a database. Databases use character sets to map, or encode, data and store it digitally. The ASCII encoding standard is based on the U.S. English alphabet. ASCII accommodates both the upper and lowercase English alphabet and numbers, mathematical operators, and symbols, as shown earlier in Figure 2.3.
+
+Many languages include accent marks, extending the Latin alphabet. For example, Akrapovič is a Slovenian manufacturer. To store the č in Akrapovič, you need to encode that value appropriately. In addition, there are many languages, including Arabic, Chinese, Japanese, and Korean, which use symbols as opposed to extending the Latin alphabet. For example, the Arabic word for “cat.” Several encoding standards exist that accommodate non-Latin characters. One of the most common is Unicode Transformation Format-8 (UTF-8), which allows non-Latin characters to be input by a user and stored in a file or database.
+
+It is necessary to realize that individual characters may consume multiple bytes, impacting the length of a character string you can store in a character data type.
+
+Numeric
+Whole Numbers
+Rational Numbers
+Date and Time
+Currency
+
+
+As you prepare for the Data+ exam, you should recognize the difference between storing a data type and formatting it to facilitate human interpretation. Take care not to automatically infer a data type based on formatting.
+
+Strong And Weak Typing
+Data types define values placed in columns. Strong typing is when technology rigidly enforces data types. Databases, discussed in Chapter 3, use strong typing. A database column defined as numeric only accepts numerical values. You will get an error if you attempt to enter characters into a numeric column.
+
+Weak typing loosely enforces data types. Spreadsheets use weak typing to help make it easier for people to accomplish their work. Spreadsheets default to an “automatic” data type and accommodate practically any value. When a person specifies a data type, it is loosely enforced compared to a database. For example, with a numeric spreadsheet cell, the software does not stop you from entering and storing characters.
