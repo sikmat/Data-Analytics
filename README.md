@@ -309,10 +309,36 @@ Common file formats make it easy for people to read a file's contents and facili
 - In F.Codds's relational model an entity(Nouns= People, Places, Things) contains data about a single object.
 - Benefits: Consistencey with option to rollback, Stored procedures(Ability to write multiple blocks of functions of code that you can reuse), Locking and Concurrency
 
-Entity Relationship Diagram(ERD)
+**Entity Relationship Diagram(ERD)**
 - Is visual artifact of the data modelling process. It shows the connection/relationship between related entities.
+- Serves as a blueprint for, and helps you understand the structure of relational DB
+- Helps you visualize the connections, especially when dealing with muliple tables.
+  
 - **Cardinaity**  is the relationship between two entities, showing how many instances of one entity relate to instance of another entity. We use cardinality symbols, with different line endings to illustrate these relationship combinations.
+
+![image](https://github.com/sikmat/Data-Analytics/assets/111583727/592b5732-ad12-4ba6-a569-c09fc03ceb6c)
+
+
 - **Unary relationship** is when an entity has a relationship with itself.
+
+![image](https://github.com/sikmat/Data-Analytics/assets/111583727/8fe22088-5895-4c52-99b8-de973b9587f5)
+
+- **Binary relationship** connects two entities. Most common and easy to explore.
+- **Ternary** connects three entities. For example a ticket entity could connect a venue, performing artist, and a price. More complex and rare.
+
+Relational DBs are pieces of software that let you make an operational system out of an ERD. You start with a relational model and create a physical design. Relational entities correspond to DB tables, and entity attributes correspond to table columns. When an attribute becomes a column you assign it a data type. The result of all this is schema diagram, it's like an ERD with the additional details needed to create a database.
+
+Two entities can become three tablea, by creating an a third table to resolve a many-to-many relationship with an associative table.
+- An **Associative** table is both a table and a relationship.
+- **Primary key(PK)** is one or more attributes that uniquely identify a specific row. Best to use -- - **Synthetic primary keys** which are attributes whose only purpose is to contain unique values for each row.
+- **Foreign key(FK)** is one or more columns in one table that points to corresponding columns in a related table. Frequently it references another table's PK. It is used to link two tables.
+Every row in a RDB must be unique
+
+- In DBs we use Structured Query Language(SQL) to compose queries that will perfom specific CRUD functions on a DB.
+- A DB join is performed to retrieve data to use, using data values from one table to retrieve associated data in another table, typically using a FK.
+- FKs enforce referential integrity, or data consistency and hence data quality.
+- **Composite PK** is a PK composed of more than one column
+-**Database Admin(DBA)** is someone highly skilled and knowledgeable on how DB software interact with hardware. They look at how it uses storage, memory and processor resources assigned to the DB. Trying to find processes that slow the DB down, in order to find solutions and improve performance.
 
 **Non-Relational DB**
 - Deals with unstructured data
