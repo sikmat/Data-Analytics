@@ -296,4 +296,23 @@ When selecting data types, consider the range of values that a data element can 
 Individual data elements fall along the structured data continuum. At one end, there is highly structured, rectangular data. Structured data is organized into columns and rows. Each column has a consistent data type, and each row contains data about one data subject. Unstructured data does not fit neatly into a column. Looking for similarities or differences in unstructured data requires more advanced analytical techniques than structured data.
 
 ### 5. Differences in common file formats
-Common file formats make it easy for people to read a file's contents and facilitate interoperability between tools. Delimiters separate variable-length fields in a file. The comma and the resultant CSV file are among the most commonly used formats for exchanging text files. To provide additional metadata about data values and support more complex data structures, XML and JSON were developed. JSON is a preferred format, given its low overhead, especially when compared with XML.
+Common file formats make it easy for people to read a file's contents and facilitate interoperability between tools. Delimiters separate variable-length fields in a file. The comma and the resultant CSV file are among the most commonly used formats for exchanging text files. To provide additional metadata about data values and support more complex data structures, XML and JSON were developed. JSON is a preferred format, given its low overhead, especially when compared with XML.\
+
+# MODULE 2
+## CH.3 UNDERSTANDING DATABASES AND DATA ACQUISITION
+
+### Exploring DBs
+
+**Relational DB**
+- Mainly for storing and processing structured data
+- Deals with tabular data as tabular data is highly structured
+- In F.Codds's relational model an entity(Nouns= People, Places, Things) contains data about a single object.
+- Benefits: Consistencey with option to rollback, Stored procedures(Ability to write multiple blocks of functions of code that you can reuse), Locking and Concurrency
+
+Entity Relationship Diagram(ERD)
+- Is visual artifact of the data modelling process. It shows the connection/relationship between related entities.
+- **Cardinaity**  is the relationship between two entities, showing how many instances of one entity relate to instance of another entity. We use cardinality symbols, with different line endings to illustrate these relationship combinations.
+- **Unary relationship** is when an entity has a relationship with itself.
+
+**Non-Relational DB**
+- Deals with unstructured data
