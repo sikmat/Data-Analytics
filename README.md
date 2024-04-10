@@ -296,14 +296,14 @@ When selecting data types, consider the range of values that a data element can 
 Individual data elements fall along the structured data continuum. At one end, there is highly structured, rectangular data. Structured data is organized into columns and rows. Each column has a consistent data type, and each row contains data about one data subject. Unstructured data does not fit neatly into a column. Looking for similarities or differences in unstructured data requires more advanced analytical techniques than structured data.
 
 ### 5. Differences in common file formats
-Common file formats make it easy for people to read a file's contents and facilitate interoperability between tools. Delimiters separate variable-length fields in a file. The comma and the resultant CSV file are among the most commonly used formats for exchanging text files. To provide additional metadata about data values and support more complex data structures, XML and JSON were developed. JSON is a preferred format, given its low overhead, especially when compared with XML.\
+Common file formats make it easy for people to read a file's contents and facilitate interoperability between tools. Delimiters separate variable-length fields in a file. The comma and the resultant CSV file are among the most commonly used formats for exchanging text files. To provide additional metadata about data values and support more complex data structures, XML and JSON were developed. JSON is a preferred format, given its low overhead, especially when compared with XML.
 
 # MODULE 2
 ## CH.3 UNDERSTANDING DATABASES AND DATA ACQUISITION
 
-### Exploring DBs
+## Exploring DBs
 
-**Relational DB**
+Relational DB
 - Mainly for storing and processing structured data
 - Deals with tabular data as tabular data is highly structured
 - In F.Codds's relational model an entity(Nouns= People, Places, Things) contains data about a single object.
@@ -337,8 +337,67 @@ Every row in a RDB must be unique
 - In DBs we use Structured Query Language(SQL) to compose queries that will perfom specific CRUD functions on a DB.
 - A DB join is performed to retrieve data to use, using data values from one table to retrieve associated data in another table, typically using a FK.
 - FKs enforce referential integrity, or data consistency and hence data quality.
+- FK are also used to implement data constraints in a database.
 - **Composite PK** is a PK composed of more than one column
 -**Database Admin(DBA)** is someone highly skilled and knowledgeable on how DB software interact with hardware. They look at how it uses storage, memory and processor resources assigned to the DB. Trying to find processes that slow the DB down, in order to find solutions and improve performance.
 
-**Non-Relational DB**
-- Deals with unstructured data
+**Non-Relational DBs**
+- Deals with unstructured data. They do not have a predefined structure based on tabular data.
+- Flexible approach to storing data
+- Data validation happens in code, not done in the DB.
+
+**Key-Valu DBe**
+- Data stored as collection of keys and their values.
+- Key must be globally unique across the entire database.
+- No structural limits on the values of a key
+- Key can be a sequence of numbers, alphanumeric strings, or other combo of values.
+- The data that corresponds with a key can be structured or unstructured data type.
+- More simpler than RDB, with no underlying structure and few limitations on data that can be stored.
+- Scalable to accomodate more simultaneous request, without affecting performance.
+- Only way to search is to have a key, because of many data types.
+- Beneficial when you have lots of data, and can search with key's value. Quickly retrieves the data
+
+**Document DB**
+-Similar to key-value DB, with more restrictions. In key-value DB, the value can contain anything.
+- In document DB the value is restricted to a specific structured format
+- Searching with a known key produces fast results
+- Have more flexibility than key-value, with ability to understand a document structure and can search based on data within the document.
+
+**Column-Family DB**
+- Use an index to identify data in groups of related columns.
+- Facilitates distribution of data across multiple machines.
+- Can handle large data volumes due to how it organizes and stores data.
+- Optimize performance when you need to examine the contents of a column across many rows.
+- It's preferred for its ability to scale
+
+**Graph DB**
+- Specialize in exploring relationships between peices of data
+- Consider Figure 3.6, which shows the tables required to indicate which animals belong to which people. Figure 3.13 illustrates how a graph models data from Tables 3.1 and 3.2. Each animal and person represents a node in the graph. Each node can have multiple properties. Properties store specific attributes for an individual node. The arrow connecting nodes represents a relationship.
+
+![image](https://github.com/sikmat/Data-Analytics/assets/111583727/6fd960eb-05f2-4e22-a7ff-49384e6a10c0)
+
+ -  Relational models focus on mapping the relationships between entities.
+ -  Graph models map relationships between actual pieces of data
+ -  Fewer objects are involved, so Graphs allow you follow very quickly.
+ -  Best choice when you need to create a recommendation engine, as Graphs are great at exploring relationships between data. Ex: when you search for a product on an e-commerce website, the results are frequently accompanied by a collection of related items. Understanding the connection between products is a challenge that graphs solve with ease.
+
+## DATABASE USE CASES
+
+### Online Transactional Processing(OLTP)
+- Transactions we encounter daily, flight booking, ordering online, stock trading.
+- OLAP balance the ability to write and read data efficiently
+  
+**Normalization** is a process for structuring a DB in a way that minimizes duplication of data.
+- A given piece of data should be stored only once and not duplicated.
+- Normalized DB is ideal for processing transactions
+- 1st normal form(1NF) is when every row in a table is unique and every column contains a unique value.
+- 2nd normal form(2NF)
+- Continues with 1NF, appying an additional rule making all non-primary key values depend on the entire primary key.
+- 3rd normal form(3NF) builds on 2NF making columns depend only on the primary key.
+- This results in little redundancy in the data's storage loaction and that keys enforce the relationships between tables.
+- DBs in 3NF are said to highly normalized.
+  
+### Online Analytical Processing(OLAP)
+- Focus on ability of organization to analyze data.
+- Typically have denormalized design. Instead of data being distributed across multiple tables, denormalization results in wider tables than in an OLTP DB.
+- More efficient for analytical queries to read large amounts of data for a single table instead of incurring the cost of joining multiple tables together.
