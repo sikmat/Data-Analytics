@@ -401,3 +401,18 @@ Every row in a RDB must be unique
 - Focus on ability of organization to analyze data.
 - Typically have denormalized design. Instead of data being distributed across multiple tables, denormalization results in wider tables than in an OLTP DB.
 - More efficient for analytical queries to read large amounts of data for a single table instead of incurring the cost of joining multiple tables together.
+- Remember, the greater the number of joins, the more complex the query. The more complex the query, the longer it takes to retrieve results.
+
+**Schema Concepts**
+- A **data warehouse** is a database that aggregates data from many transactional systems for analytical purposes.
+- Transactional data may come from systems that power the human resources, sales, marketing, and product divisions. A data warehouse facilitates analytics across the entire company.
+- A **data mart** is a subset of a data warehouse. Data warehouses serve the entire organization, whereas data marts focus on the needs of a particular department within the organization. For example, suppose an organization wants to do analytics on their employees to understand retention and career evolution trends. To satisfy that use case, you can create a data mart focusing on the human resources subject area from the data warehouse.
+
+- A **data lake** stores raw data in its native format instead of conforming to a relational database structure.
+- Using a data lake is more complex than a data warehouse or data mart, as it requires additional knowledge about the raw data to make it analytically useful.
+- Relational databases enforce a structure that encapsulates business rules and business logic, both of which are missing in a data lake.
+
+- For data warehouses and data marts, several design patterns exist for modeling data. 
+- The structure of a database schema impacts analytical efficiency, particularly as the volume of data grows.
+- In addition to a schema's design, it is vital to consider the life cycle.
+- Life-cycle considerations include where data comes from, how frequently it changes, and how long it needs to persist.
