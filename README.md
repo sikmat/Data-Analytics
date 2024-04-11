@@ -416,3 +416,66 @@ Every row in a RDB must be unique
 - The structure of a database schema impacts analytical efficiency, particularly as the volume of data grows.
 - In addition to a schema's design, it is vital to consider the life cycle.
 - Life-cycle considerations include where data comes from, how frequently it changes, and how long it needs to persist.
+
+**Star Schema**
+- The star schema design to facilitate analytical processing gets its name from what the schema looks like when looking at its entity relationship diagram, as Figure 3.20 illustrates.
+- Star schemas are denormalized to improve read performance over large datasets.
+
+![image](https://github.com/sikmat/Data-Analytics/assets/111583727/cae2b5be-e732-485d-8555-24c5cf98667e) Figure 3.20
+
+- At the centre of the star is a fact table.
+- Fact tables chiefly store numerical facts about a business. In Figure 3.20, the schema design centres on reporting on the cost and profitability of procedures.
+- Qualitative data, including names, addresses, and descriptions, is stored in a series of dimension tables that connect to the main fact table.
+
+OLTP and OLAP Query Example
+![image](https://github.com/sikmat/Data-Analytics/assets/111583727/9c95be62-8e9d-4e13-bc1a-444d76f5bd35)
+
+- The four INNER JOIN statements in the OLTP Query indicate that you need five tables to get the result.
+- In contrast, the single INNER JOIN in the Star Schema Query requires two tables.
+- Now imagine that you want to get the procedure cost by animal type and zip code.
+- Crafting that query using the schema in Figure 3.14 requires you to bring in the Person, PersonAddress, and Address tables.
+- Using the star schema from Figure 3.20, you only need to add the Person_Dimension table.
+
+When data moves from an OLTP design into a star schema, there is a significant amount of data duplication.
+- As such, a star schema consumes more space than its associated OLTP design to store the same data.
+- These additional resource needs are one of the factors that makes data warehouses expensive to operate.
+
+**Snowflake Schema**
+- The schema diagram looks like a snowflake
+- Like the star, has a central fact table surrounded by dimensions. But differ in handling of dimensions.
+- In a snowflake the dimensions have subcategories, which gives the snowflake its design shape.
+- Less normalized than star
+- Star schema is one join away frome fact table, the Snowflake may need more than one join to get the data
+- Snowflake query is more complicated than equivalent query in Star. But Snowflake requires less storage space
+
+**The amount of storage a database needs decreases as a function of the degree of normalization. OLTP databases are highly normalized, whereas OLAP databases are denormalized.**
+
+**Dimensionality**
+- Dimensionality refers to the number of attributes a table has. The greater the number of attributes, the higher the dimensionality.
+- A dimension table provides additional context around data in fact tables. For example, consider the Person_Dimension table in Figure 3.22, which contains details about people. If you need additional data about people, add columns to Person_Dimension.
+
+- It is crucial to understand the types of questions an analyst will need to answer when designing dimension tables.
+- For example, a vice president of sales may want to examine profitability by geographical region and time of year. They may want to zoom in and look at product sales by day to gauge the effectiveness of a marketing campaign. They may also want to better understand trends by product and product family.
+
+- One dimension you will frequently encounter is time.
+- It is necessary to answer questions about when something happened or when something was true.
+- For example, to understand historical profitability, you need to keep track of pricing at the product level over time. One way to accomplish this is to add a start and end date to each product's price.
+
+- One of the criteria to consider is how quickly a dimension changes over time.
+- Consider a geographic dimension table containing the 50 U.S. states. Ever since Hawaii became the 50th state in 1959, the number of states has remained constant. Looking forward, it is unlikely that additional states will enter the union with great frequency.
+- In this context, geography is an example of a slowly changing dimension. However, other geographic attributes change more quickly. For example, a person's street address is more likely to change than the number of states in the United States.
+- Regardless of the speed at which a dimension changes, you need to handle both current and historical data.
+
+**Handling Dimensionality**
+- There are multiple ways to design dimensions. Table 3.5 illustrates the **start and end date approach**. An understanding of this method is required to write a query to retrieve the current price.
+- Another method extends the snowflake approach to **modelling dimensions**. You have a product dimension for the current price and a product history table for maintaining price history.
+- One advantage of this approach is that it is easy to retrieve the current price while maintaining access to historical information.
+- Another approach is to use an **indicator flag** for the current price.
+- This approach requires another column, as shown in Table 3.6.
+- The indicator flag method keeps all pricing data in a single place.
+- It also simplifies the query structure to get the current price.
+- Instead of doing date math, you look for the price where the Current flag equals “Y.”
+- It is also possible to use the **effective date approach** to handling price changes. Consider Table 3.7, which illustrates this approach. In the table, each row has the date on which the given price goes into effect.
+- The assumption is that the price stays in effect until there is a price change, at which point a new row is added to the table.
+
+
