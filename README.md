@@ -543,7 +543,6 @@ To turn a database design into an operational database ready to accept data, you
 With all of that work complete, the foundation is in place to derive impactful insights. To generate insights, a productive analyst must be comfortable using the Data Manipulation Language (DML) capabilities of SQL to insert, modify, and retrieve information from databases. While DDL manages the structure of a database, DML manages the data in the database.
 
 ### Data Manipulation
-
 Data manipulation comes in the form of the four CRUD actions. 
 - SQL uses verbs to identify the type of activity a specific statement performs.
 1. Create(INSERT) new data 
@@ -552,7 +551,6 @@ Data manipulation comes in the form of the four CRUD actions.
 4. Delete(DELETE) existing data
 
 ### Filtering
-
 Filtering is a way to reduce data down to only the rows that you need. 
 - To filter data, you add a WHERE clause to a query
 - The column you are filtering on does not have to appear in the SELECT clause.
@@ -572,7 +570,6 @@ FROM  Animal                                        _Table_
 WHERE Animal_Type = 'Dog'                           _filtering value 1_
 AND  Weight> 60                                     _filtering value 2_
 
-
 **OR** operator returns the records if one of the filters is true, they don't need to be both true.
 **Example:**         _name and breed for animal types of Dog and of any animals weighing more than 10 pounds_
 SELECT Animal_Name, Breed_Name                      _Rows_
@@ -580,4 +577,118 @@ FROM  Animal                                        _Table_
 WHERE Animal_Type = 'Dog'                           _filtering value 1_
 OR  Weight> 10                                      _filtering value 2_
 
-_Good practice to use parentheses around filter conditions to make queries easy to read and understand_
+_Good practice to use parentheses around filter conditions to make queries easy for people to read and understand_
+
+### Sorting
+Specifiying the order in which you want the results to return
+- using the  SQL ORDER BY clause, no need to specify the columns you are using to sort the data in the SELECT clause.
+
+**Example:**             _animal and breed for animal type of Dog weighing more than 60 pounds, with oldest dog listed first_
+SELECT Animal_Name, Breed_Name                      _Rows_
+FROM  Animal                                        _Table_
+WHERE Animal_Type = 'Dog'                           _filtering value 1_
+OR  Weight> 60                                      _filtering value 2_
+ORDER BY Date_of_Birth ASC                          _sorting order ascending_
+
+To return youngest dog first:
+**Example:**             _animal and breed for animal type of Dog weighing more than 60 pounds, with youngest dog listed first_
+SELECT Animal_Name, Breed_Name                      _Rows_
+FROM  Animal                                        _Table_
+WHERE Animal_Type = 'Dog'                           _filtering value 1_
+OR  Weight> 60                                      _filtering value 2_
+ORDER BY Date_of_Birth DESC                         _sorting order ascending_
+
+### Date Functions
+Storing date information about an event facilitates analysis across time. For example, you may be interested in first-quarter sales performance or outstanding receivables on a rolling 60-day basis. Fortunately, there is an abundance of functions that make working with dates easy.
+
+### Logical Functions
+Logical functions can make data substitutions when retrieving data. Remember that a SELECT statement only retrieves data. The data in the underlying tables do not change when a SELECT runs
+
+**IFF** function
+IFF(boolean_expression, true_value, false_value)
+The IFF function expects the following three parameters:
+1. **Boolean Expression**:  The expression must return either TRUE or FALSE.
+2. **True Value**:  If the Boolean expression returns TRUE, the IFF function will return this value.
+3.** False Value**:  If the Boolean expression returns FALSE, the IFF function will return this value.
+The following query, using the IFF function, generates the results in Table 3.11:
+
+**Example:**
+SELECT  Animal_Name, IFF(Sex = 'M', 'Male', 'Female')
+FROM   Animal
+
+Note that with the IFF approach, the values for Male and Female come from the function parameters, not from the source table (Table 3.9). Suppose the description in the underlying table gets modified. In that case, the results of the IFF query will not reflect the modified data.
+
+**Example:**
+SELECT  Animal_Name, IFF(Sex = 'M', 'Boy', 'Girl')
+FROM   Animal
+
+IFF is just one example of a logical function. When using logical functions, you need to balance their convenience with the knowledge that you are replacing data from the database with the function's coded values. The ability to do this type of substitution is a real asset when dividing data into categories.
+
+### Aggregate Functions
+Summarized data helps answer questions that executives have, and aggregate functions are an easy way to summarize data. Aggregate functions summarize a query's data and return a single value. While each database platform supports different aggregation functions
+
+**Common SQL Aggregate functions**
+COUNT          _Returns the total number of rows of a query_
+MIN            _Returns the minimum value from the results of a query. Note that this works on both alphanumeric and numeric data types._
+MAX            _Returns the maximum value from the results of a query. Note that this works on both alphanumeric and numeric data types._
+AVG            _Returns the mathematic average of the results of a query._
+SUM            _Returns the sum of the results of a query._
+STDDEV         _Returns the sample standard deviation of the results of a query._
+
+You can also use aggregate functions to filter data. For example, you may want a query that shows all employees who make less than the average corporate salary. Aggregate functions also operate across subsets of data. For instance, you can calculate total sales by month with a single query.
+
+### System Functions
+Are functions that reveal data about the DB itself.
+- Such as the current date function
+- The current date is a component of transactional records and enables time-based analysis in the future. The current date is also necessary for a system that uses an effective date approach.
+
+System functions also return data about the database environment. 
+- **For example**, whenever a person or automated process uses data from a database, they need to establish a database session.
+- A database session begins when a person/program connects to a database. The session lasts until the person/program disconnects. For example, a poorly written query can consume most of the resources available to the database. When that happens, a database administrator can identify and terminate the problematic session.
+
+### Query Optimization
+Writing an SQL query is straightforward. Writing a SQL query that efficiently does what you intend can be more difficult. There are several factors to consider when creating well-performing SQL.
+
+**Parametrization**
+Whenever a SQL query executes, the database has to parse the query. Parsing translates the human-readable SQL into code the database understands. Parsing takes time and impacts how long it takes for a query to return data. Effective use of parameterization reduces the number of times the database has to parse individual queries.
+
+Suppose you operate a website and want to personalize it for your customers. Login details serve as parameters to the query to retrieve your information for display. After logging in, a customer sees a welcome message identifying them by name.
+
+Figure 3.28 provides an example of the web server creating a hard-coded query. Examining the WHERE filter in the query, we see that it matches the string “Gerald.” When Gerald logs in, the database parses the query, executes it, and returns Gerald's information.
+
+In this situation, when Gina logs in, the WHERE filter looks specifically for “Gina.” Since “Gerald” is different from “Gina,” the database treats this as a new query and parses it. The time it takes to parse becomes problematic at scale. Imagine 1,000 people all logging in at the same time. The database sees each of these queries as unique and ends up parsing 1,000 times.
+
+![image](https://github.com/sikmat/Data-Analytics/assets/111583727/1c3b17c6-2d87-4d6c-83ae-b6d67bae00d7)
+Figure 3.28: Hard-coded SQL query
+
+Figure 3.29 illustrates how to address this potential performance problem using parameterization. Instead of looking specifically for an exact string match for every customer, the query uses a variable called &customer_name. The code in the web server populates the variable with the appropriate customer name. To the database, this appears as a single query. While the value of &customer_name changes for every customer, the database parses it only once.
+
+![image](https://github.com/sikmat/Data-Analytics/assets/111583727/6947f1b5-b76f-4b96-9b47-8e49d4c471b2)
+Figure 3.29 Parameterized SQL query
+
+**Indexing**
+- When retrieving data from a table, the database has to scan each row until it finds the ones that match the filters in the WHERE clause.
+- The process of looking at each row is called a full table scan. A full table scan is like flipping through every page in a book to find a specific piece of data.
+- For small tables, full table scans happen quickly. As data volumes increase, scanning the entire table takes a long time and is not efficient.
+- _To speed up query performance, you need a database index. A database index works like the index in the back of a book. Instead of looking at each page in a book to find what you are looking for, you can find a specific page number in the index and then go to that page_.
+
+A database index can point to a single column or multiple columns.
+- When running queries on large tables, it is ideal if all of the columns you are retrieving exist in the index. If that is not feasible, you at least want the first column in your SELECT statement to be covered by an index.
+
+If a query is running slowly, look at the indexes on the underlying tables. If you think a new index would help improve query performance, discuss it with a database administrator. The administrator will look at other factors that impact performance and will have the permissions to create an index if necessary.
+
+_While indexing improves query speed, it slows down create, update, and delete activity. An indexing strategy needs to match the type of system the database supports, be it transactional or reporting._
+
+**Data Subsets and Temporary Tables**
+When dealing with large data volumes, you may want to work with a **subset** of records. For example, suppose an organization has 1,000,000 customers. Each of those customers places 200 orders per year, and there are 10 years of data in the data warehouse. In this situation, the Order table in the data warehouse would have 2 billion rows. If you want to explore trends for a specific customer's order history, it would not be efficient to query the main Order table.
+
+It is possible to create a **temporary table** to make the data more manageable. Temporary tables can store the results of a query and are disposable. Temporary tables automatically get removed when the active session ends. Using temporary tables is an effective method of creating subsets for ad hoc analysis.
+
+For example, you can establish a database session, create a temporary table with the order history for a single customer, run queries against that temporary table, and disconnect from the database. When the session disconnects, the database automatically purges any temporary tables created during the session.
+
+**Execution Plan**
+An execution plan shows the details of how a database runs a specific query. 
+- Execution plans are extremely helpful in troubleshooting query performance issues.
+- They provide additional information about how a query is spending its time.
+- For example, an execution plan can tell you if a slow-running query uses a full table scan instead of an index scan. In this case, it could be that the query is poorly written and not using the existing indexes.
+- It also could be that a column needs a new index. Looking at execution plans is an integral part of developing efficient queries. It is worth understanding the nuances of how to interpret execution plans for the database platform you use. If you need help understanding an execution plan, get in touch with your local database administrator.
