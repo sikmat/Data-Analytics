@@ -403,12 +403,15 @@ Every row in a RDB must be unique
 - More efficient for analytical queries to read large amounts of data for a single table instead of incurring the cost of joining multiple tables together.
 - Remember, the greater the number of joins, the more complex the query. The more complex the query, the longer it takes to retrieve results.
 
-**Schema Concepts**
+### Schema Concepts
 - A **data warehouse** is a database that aggregates data from many transactional systems for analytical purposes.
+- Designed for OLAP. The data is summarized. Rigid schema of organizing the data
 - Transactional data may come from systems that power the human resources, sales, marketing, and product divisions. A data warehouse facilitates analytics across the entire company.
 - A **data mart** is a subset of a data warehouse. Data warehouses serve the entire organization, whereas data marts focus on the needs of a particular department within the organization. For example, suppose an organization wants to do analytics on their employees to understand retention and career evolution trends. To satisfy that use case, you can create a data mart focusing on the human resources subject area from the data warehouse.
 
-- A **data lake** stores raw data in its native format instead of conforming to a relational database structure.
+- A **data lake** is designed store raw data in its native format instead of conforming to a relational database structure.
+- Made for large amounts of data
+- Used for ML and AI or for analytics processing
 - Using a data lake is more complex than a data warehouse or data mart, as it requires additional knowledge about the raw data to make it analytically useful.
 - Relational databases enforce a structure that encapsulates business rules and business logic, both of which are missing in a data lake.
 
@@ -447,6 +450,7 @@ When data moves from an OLTP design into a star schema, there is a significant a
 - Less normalized than star
 - Star schema is one join away frome fact table, the Snowflake may need more than one join to get the data
 - Snowflake query is more complicated than equivalent query in Star. But Snowflake requires less storage space
+- Data warehouses often use snowflake schemas, since many different systems supply data to the warehouse
 
 **The amount of storage a database needs decreases as a function of the degree of normalization. OLTP databases are highly normalized, whereas OLAP databases are denormalized.**
 
@@ -478,4 +482,57 @@ When data moves from an OLTP design into a star schema, there is a significant a
 - It is also possible to use the **effective date approach** to handling price changes. Consider Table 3.7, which illustrates this approach. In the table, each row has the date on which the given price goes into effect.
 - The assumption is that the price stays in effect until there is a price change, at which point a new row is added to the table.
 
+## DATA ACQUISITION CONCEPTS
+
+### Integration
+Data from transactional systems flow into data warehouses and data marts for analysis. We must retrieve, reshape and insert data to move between operational and analytical environments.
+
+Extract Transform & Load(ETL) is one approach used to (integrate) acquire and transfer data
+1. **Extract** data from the source system and place it in staging area. Moving data from relational DB to into a flat file(Textfile, JSON, CSV) as quickly as possible.
+2. **Transform** (reformat) data from its transactional structure to the data warehouse's analytical design.
+3. **Load** the data into the analytical system as quickly as possible
+- ELT is a variant of ETL, just in a differing order. The key difference is the technical component performing the transformation.
+- With ETL transformation happens external to a relationalmDB, using programming language like Python.
+- ELT uses SQL and the power of a relational DB to reformat the data.
+- ELT has the advantage of speed at which data moves from the operational to the analytical database.
+- If you need to get massive amounts of transactional data into an analytical environment as quickly as possible. In that case, ELT is a good choice, especially at scale when the data warehouse has a lot of capacity. Whether you choose ETL or ELT is a function of organizational need, staff capabilities, and technical strategy.
+
+ELT Vendors
+-  Evaluate the available free and paid options to determine the one that best fits your needs and system architecture goals.
+
+- An initial load occurs the first time data is put into a data warehouse.
+- After that initial load, each additional load is a delta load, also known as an incremental load.
+- A delta load only moves changes between systems
+- The initial load happens right before the data warehouse becomes available for use.
+- All of the transactional data from January becomes the delta load that initiates on the first of February. Figure 3.23 illustrates a monthly delta-load approach that continues throughout the year.
+
+![image](https://github.com/sikmat/Data-Analytics/assets/111583727/4eb82d00-3900-4212-b1c2-cce5a8f39e24)
+
+- The frequency with which delta loads happen depends on business requirements.
+-  Depending on how fresh the data needs to be, delta loads can happen at any interval. Hourly, daily, and weekly refreshes are typical.
+-  When moving data between systems, you have to balance the speed and complexity of the overall operation.
+-  Suppose you operate nationally within the United States and start processing transactions at 7 in the morning and finish by 7 in the evening.
+-  The 12 hours between 7 p.m. and 7 a.m. represent the batch window, or time period available, to move data into your data warehouse.
+-  The duration of a batch window must be taken into account when designing a delta load strategy.
+  
+_You need to understand the time available for performing delta loads into your data warehouse. Regardless of how long your batch window is, think carefully about moving current data into the data warehouse without losing history._
+
+
+### Data Collection Methods
+**APIs**
+An application programming interface (API) is a structured method for computer systems to exchange information. APIs provide a consistent interface to calling applications, regardless of the internal database structure.
+ 
+**Web Services**
+   
+**Web Scraping**
+
+**Human-in-the-loop**
+   
+**Surveys**
+
+**Survey Tools**
+
+**Observation**
+
+**Sampling**
 
