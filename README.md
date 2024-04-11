@@ -538,3 +538,46 @@ _You need to understand the time available for performing delta loads into your 
 
 **Sampling**: Taking samples from large datasets and using them to make generalization about the population
 
+## WORKING WITH DATA
+To turn a database design into an operational database ready to accept data, you use the Data Definition Language (DDL) components of SQL. DDL lets you create, modify, and delete tables and other associated database objects.
+With all of that work complete, the foundation is in place to derive impactful insights. To generate insights, a productive analyst must be comfortable using the Data Manipulation Language (DML) capabilities of SQL to insert, modify, and retrieve information from databases. While DDL manages the structure of a database, DML manages the data in the database.
+
+### Data Manipulation
+
+Data manipulation comes in the form of the four CRUD actions. 
+- SQL uses verbs to identify the type of activity a specific statement performs.
+1. Create(INSERT) new data 
+2. Read(SELECT) existing data
+3. Update(UPDATE) existing data
+4. Delete(DELETE) existing data
+
+### Filtering
+
+Filtering is a way to reduce data down to only the rows that you need. 
+- To filter data, you add a WHERE clause to a query
+- The column you are filtering on does not have to appear in the SELECT clause.
+
+**Example:**        _Animal names and breed of Dog type_
+SELECT Animal_Name, Breed_Name                      _Rows_
+FROM  Animal                                        _Table_
+WHERE Animal_Type = 'Dog'                           _Value you are filtering with_
+
+### Filtering and Logical Operators
+We use logical operators to account for complex filtering needs.
+
+**AND** operator evaluated animal type and weight filters together, it returns records where both filters are true
+**Example:**         _name and breed for animal types of Dog weighing more than 60 pounds_
+SELECT Animal_Name, Breed_Name                      _Rows_
+FROM  Animal                                        _Table_
+WHERE Animal_Type = 'Dog'                           _filtering value 1_
+AND  Weight> 60                                     _filtering value 2_
+
+
+**OR** operator returns the records if one of the filters is true, they don't need to be both true.
+**Example:**         _name and breed for animal types of Dog and of any animals weighing more than 10 pounds_
+SELECT Animal_Name, Breed_Name                      _Rows_
+FROM  Animal                                        _Table_
+WHERE Animal_Type = 'Dog'                           _filtering value 1_
+OR  Weight> 10                                      _filtering value 2_
+
+_Good practice to use parentheses around filter conditions to make queries easy to read and understand_
