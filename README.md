@@ -519,20 +519,22 @@ _You need to understand the time available for performing delta loads into your 
 
 
 ### Data Collection Methods
-**APIs**
-An application programming interface (API) is a structured method for computer systems to exchange information. APIs provide a consistent interface to calling applications, regardless of the internal database structure.
+
+**API**: An application programming interface (API) is a structured method for computer systems to exchange information. APIs provide a consistent interface to calling applications, regardless of the internal database structure.
  
-**Web Services**
+**Web Services**: A web service is an API you can call via Hypertext Transfer Protocol (HTTP), the language of the World Wide Web.
+
+**Web Scraping**: If data exists in a structured format, you can retrieve it programmatically. Programmatic retrieval of data from a website is known as web scraping. 
+- You can use software bots to scrape data from a website. Many modern programming languages, including Python and R, make it easy to create a web scraper.
+- Instead of using an API or a web service, a web scraper reads a web page similar to a browser, such as Chrome, Safari, or Edge. Web scrapers read and parse the HTML to extract the data the web pages contain.
+
+**Human-in-the-loop**: Involves sourcing data from people, might be based on how they feel about something.
    
-**Web Scraping**
+**Surveys**: Used to give questions and get answers from people. Complex survey logic lets you gather additional details as to why a person has a particular opinion. You can design surveys to achieve your data collection goals and your audience.
 
-**Human-in-the-loop**
-   
-**Surveys**
+**Survey Tools**: Instead of designing a custom application to collect survey data, several survey products let you design complex surveys without worrying about building a database
 
-**Survey Tools**
+**Observation**: Observation is the act of collecting primary source data, from either people or machines. Observational data can be qualitative or quantitative. Collecting qualitative observational data leads to unstructured data challenges.
 
-**Observation**
-
-**Sampling**
+**Sampling**: Taking samples from large datasets and using them to make generalization about the population
 
