@@ -341,12 +341,12 @@ Every row in a RDB must be unique
 - **Composite PK** is a PK composed of more than one column
 -**Database Admin(DBA)** is someone highly skilled and knowledgeable on how DB software interact with hardware. They look at how it uses storage, memory and processor resources assigned to the DB. Trying to find processes that slow the DB down, in order to find solutions and improve performance.
 
-**Non-Relational DBs**
+**Non-Relational DB**
 - Deals with unstructured data. They do not have a predefined structure based on tabular data.
 - Flexible approach to storing data
 - Data validation happens in code, not done in the DB.
 
-**Key-Valu DBe**
+**Key-Value DB**
 - Data stored as collection of keys and their values.
 - Key must be globally unique across the entire database.
 - No structural limits on the values of a key
@@ -727,3 +727,65 @@ Data can come from a variety of sources. An organization may scrape websites or 
 
 ### Describe how to manipulate data and optimize queries. 
 Analytical databases store massive amounts of data. Manipulating the entire dataset for analysis is frequently infeasible. To efficiently analyze data, understand that SQL has the power to filter, sort, and aggregate data. When focusing on a particular subject, creating a subset is an ideal approach. Although it is possible to create permanent tables to house subsets, using a temporary table as part of a query is viable for ad hoc analysis. When an analytical query performs poorly, use its execution plan to understand the root cause. It is wise to work with a database administrator to understand the execution plan and ensure that indexes exist where they are needed.
+
+## CH.4 DATA QUALITY
+### Data Quality Challenges:
+**Duplicate Data**
+- Duplicate data occurs when data representing the same transaction is accidentally duplicated within a system.
+- The best way to resolve duplicate data is to prevent its creation in the first place.
+- One common approach to stopping duplicate data before it gets into a system is a visual warning
+- Having multiple data sources for the same data elements is also a source of duplicate data to alert users.
+  
+![image](https://github.com/sikmat/Data-Analytics/assets/111583727/0c2e133c-2bfe-4b78-8825-2178047baee4)
+Figure 4.1 Duplicate data resolution process
+
+- To resolve duplicate data issues, the company has a duplicate resolution process. This process looks for customers with multiple billing addresses, validates the correct address, and updates the Sales database by removing the duplicate record.
+
+**Redundant Data**
+- Happens when the same data elements exist in multiple places within a system
+- Frequently data redundancy is a function of intergrating multple systems
+- When a record changes in one system, there is no guarantee that its new value changes in another system.
+- Since there is no certainty of data synchronization, a data element can have conflicting values across systems.
+
+![image](https://github.com/sikmat/Data-Analytics/assets/111583727/dbacd652-b46a-43b0-9be7-ac5ae45b4930)
+Figure 4.2 Multiple data sources
+
+There are several options for resolving redundant data. One approach synchronizes changes to shared data elements between the Accounting and Sales systems. However, technical or political realities can make synchronizing source systems unfeasible.
+
+![image](https://github.com/sikmat/Data-Analytics/assets/111583727/c221a620-d9ed-4e81-be73-8e9b793e9dc9)
+Figure 4.3 Resolving redundancy with intergrated ETL process
+- This integrated ETL process takes a delta load approach. When an address changes, the ETL job sets the effective end date for the old address and inserts a new row for the current address.
+- Another cause for redundancy is an inappropriate database design. Which can be resolved by restructuring the tables.
+
+**Missing Values**
+- Occur when you expect an attribute to contain data but nothing is there.
+- Missing values are also known as null values.
+- Null value is absence of a value, not a space, blank or other character.
+- There are situations when allowing nulls makes sense, like a column for optional data.
+- But nulls in a dataset cause calculation challenges
+- SQL has functions to handle nulls and complete calculations. Python and R have functions to check and replace null values as well.
+
+**Invalid Data**
+- Values outside the valid range for a given attribute.
+- Violate a business rule(Not technical rules), instead of having an incorrect data type.
+- You must understand the context of a system to determine whether or not a value is invalid
+- Absence of referential integrity leads to invalid character data
+- Implementing relationships appropriately reduces likelihood of invalid character data, improves data quality.
+
+**Nonparametric Data**
+- Data collected from categorical variables. Sometimes indicating differentiation, sometimes rank order.
+
+![image](https://github.com/sikmat/Data-Analytics/assets/111583727/02482bdb-4c1b-4022-a6a1-80e01082e296)
+Figure 4.9 Pain rating scale
+
+**Data Outliers**
+- A value that differs significantly from other observations in a dataset
+- With outliers, you need to understand why they exist and whether they are valid in the context of your analysis.
+
+  ![image](https://github.com/sikmat/Data-Analytics/assets/111583727/a95e319e-a536-4fc0-b818-dc5cf38f9e7c)
+Figure 4.10 Properties Outlier
+
+- You might find that the property in question is commercial, or data entry error occured and you must rectify that mistake by replacing the bad data with the correct values
+
+**Specification Mismatch**
+- Specification describes the target value for component.
