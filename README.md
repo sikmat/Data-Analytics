@@ -789,3 +789,11 @@ Figure 4.10 Properties Outlier
 
 **Specification Mismatch**
 - Specification describes the target value for component.
+- Occurs when an individual component's characteristics are beyond the range of acceptable values.
+- When data does not conform to its destination data type. For example, you might be loading data from a file into a database. If the destination column is numeric and you have text data, you'll end up with a specification mismatch. To resolve this mismatch, you must validate that the inbound data consistently maps to its target data type
+
+### Data Type Validation
+- Ensures that values in a dataset have consistent data type
+- How the load process handles the data type validation failure determines whether or not the remaining rows load successfully.
+- Depending on the tool, a single failure may cause the load process to stop.
+- Alternatively, the load process might write each failed record to an error file before loading the remaining records.
