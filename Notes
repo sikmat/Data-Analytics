@@ -1,0 +1,12 @@
+### MANAGING DATA QUALITY
+
+**Circumstances to Check for Quality**
+There are numerous circumstances where it is appropriate to implement data quality control checks. Every stop along the data life-cycle journey can impact data quality. Errors during data acquisition, transformation, manipulation, and visualization all contribute to degrading data quality. You should recognize the types of quality issues that can occur and have an overarching strategy to ensure the quality of your data.
+
+- Data Acquisition
+- Data Transformation and Conversion
+- Data Manipulation
+- Final Product Preparation
+
+**Automated Validation**
+- Before automatically validating input data, you need to understand how source data fields map to their corresponding database columns. When mapping input data, pay close attention to the data types in the database
