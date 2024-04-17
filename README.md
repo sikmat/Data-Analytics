@@ -797,3 +797,4 @@ Figure 4.10 Properties Outlier
 - How the load process handles the data type validation failure determines whether or not the remaining rows load successfully.
 - Depending on the tool, a single failure may cause the load process to stop.
 - Alternatively, the load process might write each failed record to an error file before loading the remaining records.
+- 
