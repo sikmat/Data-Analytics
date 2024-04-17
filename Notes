@@ -10,3 +10,18 @@ There are numerous circumstances where it is appropriate to implement data quali
 
 **Automated Validation**
 - Before automatically validating input data, you need to understand how source data fields map to their corresponding database columns. When mapping input data, pay close attention to the data types in the database
+
+**Data Quality Dimensions**
+- It is essential to consider multiple attributes of data when considering its quality. 
+Six dimensions to take into account when assessing data quality are:
+- Data Accuracy
+- Data Completeness
+- Data Consistency
+- Data Timeliness
+- Data Uniqueness
+- Data Validity
+
+**Data Quality Rules and Metrics**
+Let's consider data conformity, which encompasses elements of accuracy, consistency, uniqueness, and validity. 
+- When consolidating data from multiple source systems into an analytics environment, one factor you want to assess is the conformity or nonconformity of data. 
+- If source data does not match the destination data type size and format, you have nonconformity.
