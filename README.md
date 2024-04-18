@@ -853,8 +853,7 @@ Cross Validation - Split data into two subsets, one for training, to build a pre
 
 ## CH.5 DATA ANALYSIS AND STATISTICS
 
-## Fundamentals Of Statistics
-
+### Fundamentals Of Statistics
 Population - All the data subjects
 Sample - small portion or subset of the population
 Variable - Unique attribute about data subject, that corresponds to a column
@@ -863,8 +862,9 @@ Sample size - Number of observations you select from the population
 Statistics - Numeric representation of a property of a sample
 Parameter - Numeric representation of a property of a population
 
-### Descrptive Statistics
-Branch of stats that summarizes and describes data
+### Descriptive Statistics
+Branch of stats that summarizes and describes data. 
+Descriptive statistics help you understand the data's characteristics and can help understand events that have already happened
 
 **Measures of Frequency**
 Help you understand how often something occurs. Like counting the number of observations to understand the size of a dataset.
@@ -898,6 +898,7 @@ Understanding a specific value for a variable relative to the other values for t
 
 ### Inferential Statistics
 Branch of statistics that uses data to draw conclusions about overall population.
+Making generalizations about the population using sample data is a powerful concept that enables impactful decisions. When performing statistical inference, you have a degree of uncertainty as inferential statistics are based on probabilities. 
 
 **Confidence Intervals**
 A confidence interval describes the possibility that a sample statistic contains the true population parameter in a range of values around the mean. When calculating a confidence interval, you end up with a lower bound value and an upper bound value. Given the confidence interval range, the lower bound is the lower limit, and the upper bound is the upper limit.
@@ -919,6 +920,8 @@ To determine the statistical significance of whether to accept or reject the nul
 
 In order to get the right critical value, you need to choose a significance level. A significance level, also known as alpha (a), is the probability of rejecting the null hypothesis when it is true.
 
+A Type I error is a false positive when you reject the status quo when it is true. A Type II error is a false negative when you accept the status quo when it is false.
+
 Hypothesis Testing with the Z-test
 Hypothesis Testing With The T-Test
 Hypothesis Testing With Chi-Square
@@ -930,3 +933,24 @@ When plotting the results of a regression, the independent variable is on the x-
 **Multiple linear regression**
 Multiple linear regression explores the effect of numerous independent variables on a dependent variable.
 A crucial aspect of linear regression is the correlation between how far the observations are from the regression line. Correlation is a measurement of how well the regression line fits the observations. The correlation coefficient (r) ranges between –1 and 1 and indicates the strength of the correlation. The stronger the correlation, the more tightly the points wind around the line of best fit. Perfect correlation is when r has a value of either –1 or 1, implying that every data point falls directly on the regression line. Interpreting correlation strength depends on the industry.
+
+### Analysis Techniques
+
+**Determine Type of Analysis**
+Understand the business objectives and desired outcomes, to inform they type of analysis you will conduct. You need to review the business questions and identify any points that require additional clarification. This clarity will help you identify the data you need as well as the data sources.
+When you have consensus on the scope of your analysis, have clarity about outstanding questions, and know what data you need and where it is coming from, you can proceed confidently with conducting your analysis. It's a good idea to maintain your requirements document as you go about your work.
+
+**Types of Analysis**
+Trend analysis seeks to identify patterns by comparing data over time.
+Performance analysis examines defined goals and measures performance against them and can inform the development of future projections. Combining performance analysis with trend analysis can help develop projections for the future.
+Link analysis is a technique that uses network theory to explore the relationship between data points
+
+**Exploratory Data Analysis**
+When first exploring a dataset, it's a good idea to perform an exploratory data analysis. An exploratory data analysis (EDA) uses descriptive statistics to summarize the main characteristics of a dataset, identify outliers, and give you context for further analysis. 
+EDA Approaches:
+Check Data Structure
+Check Data Representation
+Check if Data s Missing
+Identify Outliers
+Summarize Statistics
+Check Assumptions
