@@ -853,7 +853,8 @@ Cross Validation - Split data into two subsets, one for training, to build a pre
 
 ## CH.5 DATA ANALYSIS AND STATISTICS
 
-### Fundamentals Of Statistics
+## Fundamentals Of Statistics
+
 Population - All the data subjects
 Sample - small portion or subset of the population
 Variable - Unique attribute about data subject, that corresponds to a column
@@ -886,3 +887,46 @@ Help understand the spread of your data, create context around data spread.
 **Bimodal Distribution**
 **Variance**
 **Standard Deviation**
+
+**Each Sample Is Unique**
+Special Normal Distributions
+Standard Normal Distributions
+Student T-Distributions
+
+**Measures of Position**
+Understanding a specific value for a variable relative to the other values for that variable gives an indication of the organization of your data. Statisian usually use quartiles to describe a specific observation's position.
+
+### Inferential Statistics
+Branch of statistics that uses data to draw conclusions about overall population.
+
+**Confidence Intervals**
+A confidence interval describes the possibility that a sample statistic contains the true population parameter in a range of values around the mean. When calculating a confidence interval, you end up with a lower bound value and an upper bound value. Given the confidence interval range, the lower bound is the lower limit, and the upper bound is the upper limit.
+
+**Confidence Interval Considerations**
+When calculating a confidence interval, you need to specify the confidence level in addition to the sample mean, population standard deviation, and sample size. Based on the empirical rule, the confidence level is a percentage that describes the range around the mean. The wider the confidence level, the more confident one can be in capturing the true mean for the sample. High confidence levels have a wide confidence interval, while low confidence levels have a narrower confidence interval.
+
+**Substituting Sample Standard Deviation For Population Standard Deviation**
+When calculating confidence intervals, you need to have the standard deviation of the entire population. 
+
+**Hypothesis Testing**
+One of the approaches to proving or disproving ideas is hypothesis testing. A hypothesis test consists of two statements, only one of which can be true. It uses statistical analysis of observable data to determine which of the two statements is most likely to be true.
+
+A hypothesis test consists of two components: the **null** hypothesis and the **alternative** hypothesis. When designing a hypothesis test, you first develop the null hypothesis. A null hypothesis (H0) presumes that there is no effect on the test you are conducting. When hypothesis testing, your default assumption is that the null hypothesis is valid and that you have to have evidence to reject it.
+
+You also need to develop the alternative hypothesis. The alternative hypothesis (Ha) presumes that the test you are conducting has an effect
+
+To determine the statistical significance of whether to accept or reject the null hypothesis, you need to compare a test statistic against a critical value. A test statistic is a single numeric value that describes how closely your sample data matches the distribution of data under the null hypothesis
+
+In order to get the right critical value, you need to choose a significance level. A significance level, also known as alpha (a), is the probability of rejecting the null hypothesis when it is true.
+
+Hypothesis Testing with the Z-test
+Hypothesis Testing With The T-Test
+Hypothesis Testing With Chi-Square
+
+**Simple Linear Regression**
+Simple linear regression is an analysis technique that explores the relationship between an independent variable and a dependent variable. You can use linear regression to identify whether the independent variable is a good predictor of the dependent variable. 
+When plotting the results of a regression, the independent variable is on the x-axis and the dependent variable is on the y-axis.
+
+**Multiple linear regression**
+Multiple linear regression explores the effect of numerous independent variables on a dependent variable.
+A crucial aspect of linear regression is the correlation between how far the observations are from the regression line. Correlation is a measurement of how well the regression line fits the observations. The correlation coefficient (r) ranges between –1 and 1 and indicates the strength of the correlation. The stronger the correlation, the more tightly the points wind around the line of best fit. Perfect correlation is when r has a value of either –1 or 1, implying that every data point falls directly on the regression line. Interpreting correlation strength depends on the industry.
