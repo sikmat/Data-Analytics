@@ -814,3 +814,75 @@ Transposition - Rows into columns, Columns into rows
 Normalization - Converting values to use the same metric unit
 Min-Max Normalization
 Parsing/String Manipulation
+
+### MANAGING DATA QUALITY
+
+**Circumstances to Check for Quality**
+There are numerous circumstances where it is appropriate to implement data quality control checks. Every stop along the data life-cycle journey can impact data quality. Errors during data acquisition, transformation, manipulation, and visualization all contribute to degrading data quality. You should recognize the types of quality issues that can occur and have an overarching strategy to ensure the quality of your data.
+
+- Data Acquisition
+- Data Transformation and Conversion
+- Data Manipulation
+- Final Product Preparation
+
+**Automated Validation**
+- Before automatically validating input data, you need to understand how source data fields map to their corresponding database columns. When mapping input data, pay close attention to the data types in the database
+
+**Data Quality Dimensions**
+- It is essential to consider multiple attributes of data when considering its quality. 
+Six dimensions to take into account when assessing data quality are:
+- Data Accuracy
+- Data Completeness
+- Data Consistency
+- Data Timeliness
+- Data Uniqueness
+- Data Validity
+
+**Data Quality Rules and Metrics**
+Let's consider data conformity, which encompasses elements of accuracy, consistency, uniqueness, and validity. 
+- When consolidating data from multiple source systems into an analytics environment, one factor you want to assess is the conformity or nonconformity of data. 
+- If source data does not match the destination data type size and format, you have nonconformity.
+- One way to validate data conformity issues is to confirm how many rows pass successfully to the target environment and how many fail
+
+**Methods To Validate Quality**
+Reasonable Expectations
+Data Profiling - Check discrepancies, missing, infrequent or too frequent values, irregular patterns
+Data Audits - Identify integrity and security issues
+Sampling- Examining a sample/subset of the data
+Cross Validation - Split data into two subsets, one for training, to build a predictive model. Another for testing/validation. Then cross-validate using the testing subste to compare accuracy.
+
+## CH.5 DATA ANALYSIS AND STATISTICS
+
+### Fundamentals Of Statistics
+Population - All the data subjects
+Sample - small portion or subset of the population
+Variable - Unique attribute about data subject, that corresponds to a column
+Observation - Individual record in a dataset corresponding to a row
+Sample size - Number of observations you select from the population
+Statistics - Numeric representation of a property of a sample
+Parameter - Numeric representation of a property of a population
+
+### Descrptive Statistics
+Branch of stats that summarizes and describes data
+
+**Measures of Frequency**
+Help you understand how often something occurs. Like counting the number of observations to understand the size of a dataset.
+**Count** - function in programming can help count the number of observations by counting the number of rows.
+**Percentage** - use it to calculate the proportion of the given value for a variable with a total of number of rows in a dataset
+**Frequency** - describes how often a specific value of a variable occurs in a dataset
+
+**Measures of Central Tendency**
+Help to establish an overall perspective on a given dataset. Used to identify the central or most typical value in a dataset
+**Mean** - or average, is a measurement of central tendency that computes the arithmetic average for a given set of numeric values
+**Median** - Another measurement of central tendency is the median, which identifies the midpoint value for all observations of a variable.
+**Mode** - The mode is a variable's most frequently occurring observation. Depending on your data, you may not have a mode
+
+**Measures of Dispersion**
+Help understand the spread of your data, create context around data spread.
+**Range**
+**Distribution**
+**Normal Distribution**
+**Skewed Distribution**
+**Bimodal Distribution**
+**Variance**
+**Standard Deviation**
