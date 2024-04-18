@@ -792,9 +792,25 @@ Figure 4.10 Properties Outlier
 - Occurs when an individual component's characteristics are beyond the range of acceptable values.
 - When data does not conform to its destination data type. For example, you might be loading data from a file into a database. If the destination column is numeric and you have text data, you'll end up with a specification mismatch. To resolve this mismatch, you must validate that the inbound data consistently maps to its target data type
 
-### Data Type Validation
+**Data Type Validation**
 - Ensures that values in a dataset have consistent data type
 - How the load process handles the data type validation failure determines whether or not the remaining rows load successfully.
 - Depending on the tool, a single failure may cause the load process to stop.
 - Alternatively, the load process might write each failed record to an error file before loading the remaining records.
-- 
+
+### DATA MANIPULATION TECHNIQUES
+Recoding Data - Map original values for a variable into a new values for analysis
+Derived Variables - New variable derived from a calculation on an existing variable
+Data Merge - Combine datasets of different structures into a single dataset, using a common variable 
+Data Blending - Combine multuple sources of data(temporarily) at the reporting layer, for visualization
+Concatenation - Merge seperate variables into a single variable
+Data Append -  Combine data sources with similar structure, with all the original rows. Resulting in a new dataset
+Imputation - Deal with missing values, by (1)Remove missing data, (2)Replace with 0, (3)Overall average,(4)Most frequent(Mode), (5)Closest value avarage
+Reduction
+- Dimensionality Reduction - Removing attributes that are not needed
+- Numerosity Reduction - Reducing overall size of dataset
+Aggregation - Summarization(Min, Mean, Median, Max)
+Transposition - Rows into columns, Columns into rows
+Normalization - Converting values to use the same metric unit
+Min-Max Normalization
+Parsing/String Manipulation
